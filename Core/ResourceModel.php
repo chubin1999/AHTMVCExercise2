@@ -1,5 +1,5 @@
 <?php 
-namespace MVC\Core;
+namespace mvc\Core;
 
 use mvc\Config\Database;
 use mvc\Core\ResourceModelInterface;
@@ -38,7 +38,7 @@ class ResourceModel implements ResourceModelInterface
             $arrkey = implode(',',$keyAssignment);
             $arradd = implode(',', $add);
             $sqladd = "INSERT INTO $this->table ({$arrkey}) VALUES ({$arradd})";
-            $req= Database::getBdd()->prepare($sqladd);
+            $req = Database::getBdd()->prepare($sqladd);
             return $req->execute($properties);
         //edit
         } elseif($check!=null) {
