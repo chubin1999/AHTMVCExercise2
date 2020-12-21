@@ -17,4 +17,3 @@ class TaskResourceModel extends ResourceModel
     	$this->_init($task,$id,$taskmodel);
     }
 }
-?>

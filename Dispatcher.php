@@ -24,4 +24,4 @@ class Dispatcher
         return $controller;
    }
 }
-?>
+

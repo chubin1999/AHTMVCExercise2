@@ -11,5 +11,3 @@ use mvc\Core\Controller;
 class Core
 {
 }
-
-?>

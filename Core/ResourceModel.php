@@ -80,4 +80,3 @@ class ResourceModel implements ResourceModelInterface
     }
     
 }
-?>

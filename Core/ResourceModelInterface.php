@@ -10,4 +10,3 @@ interface ResourceModelInterface
     public function get($model);
     public function getAll();
 }
-?>

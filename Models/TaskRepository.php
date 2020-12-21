@@ -37,4 +37,3 @@ class TaskRepository
 		return $task->getAll();
 	}
 }
-?>
