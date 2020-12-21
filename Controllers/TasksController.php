@@ -8,7 +8,7 @@ use mvc\Models\TaskRepository;
 
 class TasksController extends Controller  
 {
-    function index()
+    public function index()
     {
         $tasks = new TaskRepository();
 
@@ -17,7 +17,7 @@ class TasksController extends Controller
         $this->render("index");
     }
 
-    function create()
+    public function create()
     {
         if (isset($_POST["title"]))
         {
@@ -36,7 +36,7 @@ class TasksController extends Controller
         $this->render("create");
     }
 
-    function edit($id)
+    public function edit($id)
     {
         $task = new TaskRepository();
 
@@ -59,7 +59,7 @@ class TasksController extends Controller
         $this->render("edit");
     }
 
-    function delete($id)
+    public function delete($id)
     {
         $task = new TaskRepository();
         if ($task->delete($id))
