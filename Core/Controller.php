@@ -22,12 +22,9 @@ class Controller
         require( ROOT . '/Views/' . $view . '/' . $filename . '.php');
         $content_for_layout = ob_get_clean();
 
-        if ($this->layout == false)
-        {
+        if ($this->layout == false) {
             $content_for_layout;
-        }
-        else
-        {
+        } else {
             require(ROOT . "Views/Layouts/" . $this->layout . '.php');
         }
     }
@@ -42,8 +39,7 @@ class Controller
 
     protected function secure_form($form)
     {
-        foreach ($form as $key => $value)
-        {
+        foreach ($form as $key => $value) {
             $form[$key] = $this->secure_input($value);
         }
     }

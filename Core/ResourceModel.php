@@ -18,20 +18,19 @@ class ResourceModel implements ResourceModelInterface
         $this->model = $model;
     }
 
-    public function save($model){
-    	
+    public function save($model)
+    {
         $properties = $model->getProperties();
         $check = $model->getId();
 
         //attribute: add
         $keyAssignment = [];
         $add = [];
-
         //attribute: edit
         $edit = [];
 
-        //Add
-        if ($check==null){
+        //add
+        if ($check==null) {
             foreach ($properties as $key => $value) {
                 $keyAssignment[]=$key;
                 array_push($add,':'.$key);
@@ -41,10 +40,8 @@ class ResourceModel implements ResourceModelInterface
             $sqladd = "INSERT INTO $this->table ({$arrkey}) VALUES ({$arradd})";
             $req= Database::getBdd()->prepare($sqladd);
             return $req->execute($properties);
-
-        }
-        //Edit
-        elseif($check!=null){
+        //edit
+        } elseif($check!=null) {
             foreach ($properties as $key => $value) {
                 array_push($edit, $key.' = :'.$key);        
             }
@@ -52,23 +49,22 @@ class ResourceModel implements ResourceModelInterface
             $sqledit = "UPDATE $this->table SET $arredit WHERE id = :id";
             $req= Database::getBdd()->prepare($sqledit);
             return $req->execute($properties);
-
         }
     }
 
-     public function delete($id){
+    public function delete($id)
+    {
         $delete = "DELETE FROM $this->table WHERE id = $id";
         $req = Database::getBdd()->prepare($delete);
         return $req->execute();
     }
     
-
     public function get($id)
     {
-       $get = "SELECT * FROM $this->table WHERE id = $id";
-       $req = Database::getBdd()->prepare($get);
-       $req->execute();
-       return $req->fetch();
+        $get = "SELECT * FROM $this->table WHERE id = $id";
+        $req = Database::getBdd()->prepare($get);
+        $req->execute();
+        return $req->fetch();
     }
 
     public function getAll()
@@ -78,5 +74,5 @@ class ResourceModel implements ResourceModelInterface
         $req ->execute();
         return $req->fetchAll(PDO::FETCH_OBJ);
     }
-    
+
 }

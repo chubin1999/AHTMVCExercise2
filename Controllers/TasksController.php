@@ -19,16 +19,15 @@ class TasksController extends Controller
 
     public function create()
     {
-        if (isset($_POST["title"]))
-        {
+        if (isset($_POST["title"])) {
 
             $model = new TaskModel();
             $model->setTitle($_POST['title']);
             $model->setDescription($_POST['description']);
             
             $add = new TaskRepository();
-            if ($add->add($model)) 
-            {
+            
+            if ($add->add($model)) {
                 header("Location: " . WEBROOT . "tasks/index");
             }
         }
@@ -42,16 +41,14 @@ class TasksController extends Controller
 
         $d["task"] = $task->get($id);
 
-        if (isset($_POST["title"]))
-        {
+        if (isset($_POST["title"])) {
             $model = new TaskModel();
             $model->setId($id);
             $model->setTitle($_POST['title']);
             $model->setDescription($_POST['description']);
 
             $edit = new TaskRepository();
-            if ($edit->edit($model))
-            {
+            if ($edit->edit($model)) {
                 header("Location: " . WEBROOT . "tasks/index");
             }
         }
@@ -62,8 +59,7 @@ class TasksController extends Controller
     public function delete($id)
     {
         $task = new TaskRepository();
-        if ($task->delete($id))
-        {
+        if ($task->delete($id)) {
             header("Location: " . WEBROOT . "tasks/index");
         }
     }
