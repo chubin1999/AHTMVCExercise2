@@ -1,13 +1,13 @@
 <?php
 namespace mvc\Models;
 
-use mvc\Models\TaskResourceModel;
+use mvc\Models\PersonResourceModel;
 
-class TaskRepository {
+class Person {
 	protected $TaskResoureceModel;
 
 	public function __construct() {
-		$this->TaskResoureceModel = new TaskResourceModel();
+		$this->TaskResoureceModel = new PersonResourceModel();
 	}
 
 	public function add($model) {
